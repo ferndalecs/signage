@@ -102,6 +102,10 @@ Allow these for the signage devices:
 - `docs.google.com`
 - `*.googleusercontent.com` (the published CSV is served from there)
 
+If the filter does HTTPS (SSL) inspection, a sign that doesn't trust the filter's certificate shows "Your connection is not private" instead of the player. Fix it in either of two ways:
+- **Exclude the hosts from decryption (simplest).** Add the hosts above to the filter's "do not decrypt" (SSL inspection bypass) list, as Google's domains usually already are. Bypassing the exact host `<account>.github.io` still leaves other `github.io` sites inspected.
+- **Trust the filter's certificate on the signs.** In the Admin console, go to **Devices › Networks › Certificates**. Add the filter's root certificate to the **OU the sign devices are in**, with **Chromebook** ticked under Certificate authority. Kiosk sessions take their settings from the device's OU, so a certificate applied only to staff or student OUs doesn't reach them. Reboot the sign afterwards.
+
 ### 4. Pilot on one sign
 1. **Pilot OU.** In the Google Admin console, create a child OU under the signage OU (e.g. **Signage-Pilot**) and move one sign into it.
 2. **Add the kiosk app.** Go to **Devices › Chrome › Apps & extensions › Kiosks**, select the pilot OU, then **Add (+) › Add by URL**. Enter:
@@ -179,6 +183,7 @@ To see the status panel on a sign, use `?debug=1` on the kiosk address (as in th
 | Edits don't appear | "Refresh every" is 0 or very long, or Google hasn't republished yet. | Check the Sheet, and allow about 10 minutes. |
 | Screen goes dark | Power settings. | Check the kiosk power settings in the Admin console. |
 | Black screen | The player isn't loading. | Check that `<account>.github.io` is allowed, and that the kiosk address ends in `/signage/`. |
+| "Your connection is not private" | The web filter decrypts the traffic (SSL inspection), and the sign doesn't trust the filter's certificate. | Exclude the player's hosts from decryption, or add the filter's root certificate to the signs' device OU (see "Web filter"). |
 
 ## Updating the player
 1. **Make the change.** Run `npm test`, then try it on the PC.
