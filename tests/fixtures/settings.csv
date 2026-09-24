@@ -1,0 +1,4 @@
+Setting,Value,Notes
+Slides link,https://docs.google.com/presentation/d/e/2PACX-1vTEST-local-fixture-deck/pub?start=false&loop=false&delayms=3000,From the deck: File › Share › Publish to web › Link
+Seconds per slide,10,"Whole number, 3–300"
+Refresh every (minutes),5,"How often screens reload to show edits. Must be longer than one loop of the deck (5 min = up to 30 slides at 10 s). 0 = only overnight."

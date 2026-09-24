@@ -1,0 +1,80 @@
+/* Full-screen, black, no cursor, no scrollbars. Avoids newer CSS (inset, dvh) for older ChromeOS. */
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  cursor: none;
+}
+
+#stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* The deck. pointer-events:none means nobody can click or pause it, and keeps the cursor hidden. */
+.deck {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+/* A deck loading on top of the current one stays invisible (but not hidden) until it's ready. */
+.deck.incoming {
+  opacity: 0;
+}
+
+/* "Connecting…" / "Sign not set up" */
+#message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ddd;
+  font: 600 4vmin/1.4 system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+#message[hidden] {
+  display: none;
+}
+
+/* Status panel, shown with ?debug=1 */
+#debug {
+  position: fixed;
+  left: 1vmin;
+  bottom: 1vmin;
+  z-index: 10;
+  max-width: 70vw;
+  max-height: 70vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 1vmin 1.5vmin;
+  border-radius: 0.5vmin;
+  background: rgba(0, 0, 0, 0.8);
+  color: #9f9;
+  font: 1.6vmin/1.35 Consolas, 'Roboto Mono', monospace;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+#debug[hidden] {
+  display: none;
+}

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Player</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="player.css">
+  <script>
+    // Watchdog: if the player hasn't started within 60 s (for example a half-finished
+    // update left the code broken), reload the page and try again.
+    setTimeout(function () {
+      if (!window.signPlayerStarted) location.reload();
+    }, 60000);
+  </script>
+  <script type="module" src="player.js"></script>
+</head>
+<body>
+  <div id="stage"></div>
+  <div id="message" hidden></div>
+  <pre id="debug" hidden></pre>
+</body>
+</html>

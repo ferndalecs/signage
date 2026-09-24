@@ -1,0 +1,10 @@
+{
+  "name": "sign-player",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-screen Google Slides player for ChromeOS web-kiosk signs (replaces Chrome Sign Builder).",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
