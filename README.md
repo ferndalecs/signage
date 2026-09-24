@@ -81,6 +81,11 @@ Power on ─► ChromeOS auto-launches the web kiosk (no login)
 
 The deck and the Sheet must be published to **anyone on the web**. Signs have no Google account, so anything restricted to the school's domain shows a sign-in page instead.
 
+Some shared drives block publishing to the web. This happens when the drive's "Allow people outside … to access files" setting is off: Publish to web then refuses, or offers only your organisation.
+- **If that happens,** keep the Sheet somewhere that allows publishing: either a shared drive with that setting turned on, or an IT account's My Drive.
+- **Ownership:** a file in someone's My Drive belongs to that person.
+- **If you move the Sheet later,** check that its CSV link still opens without signing in. If the link has changed, update `config.js`.
+
 ### 2. Put the player on GitHub Pages
 1. **Create the repository.** Use a GitHub account or organization owned by the school, and create an empty **public** repository called `signage`. The account name becomes part of every sign's address, so pick one that will last.
 2. **Push these files** to its `main` branch:

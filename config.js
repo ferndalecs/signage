@@ -6,7 +6,7 @@ export default {
   // Link to the settings Sheet's "Settings" tab, published as CSV:
   // in the Sheet, File › Share › Publish to web › choose the Settings tab and
   // "Comma-separated values (.csv)" › Publish, then paste the link here.
-  settingsCsvUrl: '',
+  settingsCsvUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRU9hvxt7KUmzJQR5fy45jL1MXPTt7SCKmn70mrbtPSkaLklxZTMsPRZES4hYRqLmxyFDwRXLCLrifY/pub?gid=0&single=true&output=csv',
 
   // How often each sign checks the Sheet for changes, in seconds.
   pollSeconds: 60,
